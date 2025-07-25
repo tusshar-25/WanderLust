@@ -11,10 +11,7 @@ body {
 }
 
 /* ==================== NAVBAR STYLES (navbar.ejs) ==================== */
-.navbar {
-    height: 5rem;
-    background-color: white;
-}
+
 
 .fa-compass {
     color: #fe424d;
@@ -25,21 +22,54 @@ body {
     color: #222222 !important;
 }
 
+/* NAVBAR HOVER EFFECTS */
+
+
+
+.navbar-nav .nav-link:hover {
+    color: #b3001b !important;
+}
+
+.navbar-nav .nav-link::after {
+    background-color: #b3001b;
+}
+
+/* .navbar {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease-in-out;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+} */
+
+
+.navbar-nav .nav-link:hover {
+    color: #b3001b !important;
+}
+
+
 /* NAVBAR - SMALL SCREEN */
 @media (max-width: 768px) {
+
     .navbar-collapse {
-        background: linear-gradient(135deg, #ffffff, #f5f5f5);
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         margin: 0;
         padding: 1.5rem;
         width: 100vw;
         position: absolute;
         top: 5rem;
         left: 0;
-        z-index: 1000;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        border-radius: 0 0 1rem 1rem;
+        z-index: 1049;
+        box-shadow: none;
         transition: all 0.3s ease-in-out;
     }
+    
+    
 
     .navbar-nav .nav-link {
         color: #333333 !important;
@@ -51,9 +81,11 @@ body {
     }
 
     .navbar-nav .nav-link:hover {
-        background-color: #fe424d;
+        background-color: rgba(179, 0, 27, 0.85); /* red with opacity */
         color: white !important;
     }
+    
+    
 
     .navbar-toggler {
         border: none;
@@ -70,6 +102,7 @@ body {
         position: relative;
         transition: all 0.3s ease-in-out;
     }
+   
 
     .navbar-nav .nav-link::after {
         content: "";
@@ -158,12 +191,18 @@ body {
 
 
 /* ==================== FORM BUTTONS (new.ejs, edit.ejs) ==================== */
+
 .add-btn,
 .edit-btn {
-    background-color: #fe424d !important;
+    background-color: #b3001b !important;
     border: none !important;
+    color: white !important;
 }
 
+.add-btn:hover,
+.edit-btn:hover {
+    background-color: #990017 !important; /* slightly darker hover */
+}
 /* ==================== SHOW PAGE IMAGE + BUTTONS (show.ejs) ==================== */
 .show-img {
     width: 100%;
@@ -191,7 +230,9 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
+    filter: blur(12px);
+    z-index: -10;
+    opacity: 0.8;
 }
 
 .home-overlay {
@@ -213,14 +254,42 @@ body {
 .home-overlay h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    color: #f4f4f4;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    color: #b3001b !important;
 }
 
 .home-overlay p {
     font-size: 1.5rem;
     color: #e0e0e0;
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Transparent nav and footer only on home page */
+.home-bg-active nav.navbar,
+.home-bg-active footer,
+.home-bg-active .f-info {
+    background: transparent !important;
+}
+
+.home-bg-active .f-info-links a,
+.home-bg-active .f-info-socials i,
+.home-bg-active .f-info-brand {
+    color: grey !important;
+}
+
+/* ALL page */
+
+body {
+    background: transparent !important;
+    position: relative;
+    z-index: 0;
+}
+
+.container,
+.navbar,
+footer,
+.f-info {
+    background: transparent !important;
+    z-index: 1;
 }
 
 /* Transparent nav and footer only on home page */
