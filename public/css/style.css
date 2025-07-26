@@ -34,17 +34,6 @@ body {
     background-color: #b3001b;
 }
 
-/* .navbar {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    transition: all 0.3s ease-in-out;
-    position: sticky;
-    top: 0;
-    z-index: 1050;
-} */
-
 
 .navbar-nav .nav-link:hover {
     color: #b3001b !important;
@@ -160,13 +149,20 @@ body {
 
 /* ==================== CARD STYLES (index.ejs) ==================== */
 .card {
-    border: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     margin-bottom: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 3rem;
+    border-radius: 1rem !important;
+    background-color: rgba(255, 255, 255, 0.15)  !important;
+    color:  #ffffff !important;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding-top: 1rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
 }
 
-.card-wrapper .card:hover {
+.card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
@@ -178,7 +174,7 @@ body {
 }
 
 .card-body {
-    padding: 0 !important;
+    padding: 0.5rem !important;
 }
 
 .card-text p {
@@ -205,9 +201,10 @@ body {
 }
 /* ==================== SHOW PAGE IMAGE + BUTTONS (show.ejs) ==================== */
 .show-img {
+    padding-top: 0.5rem;
     width: 100%;
     height: 30vh;
-    object-fit: cover;
+    object-fit: cover !important;
 }
 
 .btns {
