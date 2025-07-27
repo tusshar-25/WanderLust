@@ -5,13 +5,19 @@ const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const wrapAsync = require("./utils/wrapasync.js");
+
+main()
+    .then(() => {
+        console.log("connected to MongoDB")
+    })
+    .catch((err) => {
+        console.log(err)
+    });
 
 async function main(){  
     await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust")
 }
-
-main().then(() => console.log("connected to MongoDB")).catch((err) => console.log(err))
-
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -52,11 +58,11 @@ app.get("/listings/:id", async (req, res) => {
 
  // Create route
 
- app.post("/listings", async (req, res) => {
-   const newListing = new Listing(req.body.listing);
+ app.post("/listings", wrapAsync(async (req, res, next) => {
+    const newListing = new Listing(req.body.listing);
    await newListing.save();
    res.redirect("/listings")
- })
+ }))
 
 // EDIT route
 
@@ -83,6 +89,10 @@ app.delete("/listings/:id", async (req, res) => {
     let deleteList = await Listing.findByIdAndDelete(id);
     console.log(deleteList)
     res.redirect("/listings")
+})
+
+app.use((err, req, res, next) => {
+    res.send("Something went wrong!")
 })
 
 app.listen(8080, () => {
