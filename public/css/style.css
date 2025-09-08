@@ -434,6 +434,13 @@ input[type="range"].form-range::-webkit-slider-runnable-track {
     margin: 0 1rem 3rem 1rem;
 }
 
-
-
-
+.custom-popup .mapboxgl-popup-content {
+    background: #1c1c1c;  /* dark bg */
+    color: #fff;          /* white text */
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .custom-popup .mapboxgl-popup-tip {
+    border-top-color: #1c1c1c !important; /* arrow same color */
+  }

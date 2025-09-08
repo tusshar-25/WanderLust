@@ -38,14 +38,14 @@
     <hr>
 
     <% if(currUser){ %>
-    <div class="col-6 offset-3 mb-3 review-form" >
+    <div class="col-6 offset-3 review-form" >
         <h4>Leave a Review...</h4>
         <form method="POST" action="/listings/<%= listing._id %>/reviews" novalidate class="needs-validation">
            
-            <div class="mb-3 mt-3">
+            <div class="mb-2 mt-3">
                 <label for="rating" class="form-label">Rating</label>
-            <fieldset class="starability-slot">
-                <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+            <fieldset class="starability-fade">   
+                <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
                 <input type="radio" id="first-rate1" name="review[rating]" value="1" />
                 <label for="first-rate1" title="Terrible">1 star</label>
                 <input type="radio" id="first-rate2" name="review[rating]" value="2" />
@@ -72,23 +72,32 @@
     </div>
     <% } %>
     
-        <% for(review of listing.reviews) { %>
-        <div class="col-8 offset-2 mb-3">
-            <p><b>All Reviews</b></p>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@<%= review.author.username %></h5>
-                    <p class="card-text"><%= review.comment %></p>
-                    <p class="card-text starability-result" data-rating="<%= review.rating %>"></p>
-                </div>
-                <% if(currUser && currUser._id.equals(review.author._id)){ %>
-                <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"  class="mb-3">
-                <button class="btn btn-dark delete-btn">Delete</button>
-                </form>
-                <% } %>
+    <div class="col-8 offset-2 mb-3">
+        <p><b>All Reviews</b></p>
+        <% if(listing.reviews.length === 0) { %>
+            <div class="card mb-3 text-center p-3" style="background-color: rgba(255,255,255,0.1); color: #fff;">
+                <p>No reviews yet. Be the first to leave a review!</p>
+                
             </div>
+        <% } else { %>
+            <% for(review of listing.reviews) { %>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">@<%= review.author.username %></h5>
+                        <p class="card-text"><%= review.comment %></p>
+                        <p class="card-text starability-result" data-rating="<%= review.rating %>"></p>
+                    </div>
+                    <% if(currUser && currUser._id.equals(review.author._id)){ %>
+                    <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="mb-3">
+                        <button class="btn btn-dark delete-btn">Delete</button>
+                    </form>
+                    <% } %>
+                </div>
             <% } %>
-        </div>
+        <% } %>
+    </div>
+    
+    
 
         <div class="col-6 offset-3 mt-3">
             <div class="card">
