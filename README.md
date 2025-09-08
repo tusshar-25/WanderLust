@@ -30,13 +30,20 @@
 
 ## 📸 Screenshots
 
-*(Insert screenshots here using the format below)*
-
 ### 🏠 Home Page
-![Homepage Screenshot](screenshots/home.png)
+![Home Page](screenshots/HomePage.png)
+
+### 📋 All Listings
+![All Listings](screenshots/AllListings.png)
 
 ### ➕ Create Listing
-![Create Page](screenshots/create.png)
+![Create Listing](screenshots/CreateListings.png)
+
+### 🌍 Map Coordinates
+![Map Coordinates](screenshots/MapCoordinates.png)
+
+### ⭐ Ratings & Reviews
+![Ratings & Reviews](screenshots/RatingReviews.png)
 
 ### 📝 Listing Details
 ![Listing Details](screenshots/listing.png)
