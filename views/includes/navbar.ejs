@@ -1,41 +1,4 @@
-<style>
-  /* Center the search form in navbar */
-.navbar .d-flex[role="search"] {
-  margin: 0 auto;         /* centers horizontally */
-  display: flex;
-  align-items: center;
-}
-
-/* Style the search input */
-.search-input {
-  border-radius: 1rem !important;
-  color: #000 !important;              /* text color */
-  background-color: transparent !important; /* light background */
-  border: 1px solid #ced4da !important;
-  height: 2rem !important;
-  width: 18rem !important;
-  /* margin-left: 20rem !important; */
-  transition: 0.3s;
-}
-.search-input:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(52, 58, 64, 0.5);
-  border-color: #343a40;
-}
-
-/* Style the search button */
-.search-btn {
-  height: 2rem !important;
-  border-radius: 1rem !important;
-  transition: 0.3s;
-  margin-left: 0.5rem !important;
-  display: flex;
-  text-align: center;
-}
-
-</style>
-
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-md sticky-top custom-navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i>  WanderLust</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" >
@@ -51,8 +14,8 @@
 
         <div class="navbar-nav searchbar ms-auto">
           <div class="navbar-nav ">
-                <form class="d-flex" role="search">
-                  <input class="form-control search-input" type="search" placeholder="Search destinations" />
+                <form class="d-flex" role="search" action="/listings/search" method="GET">
+                  <input class="form-control search-input" type="search" placeholder="Search destinations" name="q" required/>
                   <button class="btn btn-dark edit-btn search-btn" type="submit">Search</button>
                 </form>
           </div>

@@ -14,6 +14,26 @@ module.exports.newListing = (req, res) => {
     res.render("listings/new.ejs")
 }
 
+// SEARCH route
+module.exports.searchListings = async (req, res) => {
+    const { q } = req.query; // get query from search input
+    if (!q || q.trim() === "") {
+        req.flash('error', 'Please enter a search term');
+        return res.redirect('/listings');
+    }
+
+    // Search titles using case-insensitive regex
+    const regex = new RegExp(q, 'i'); 
+    const listings = await Listing.find({ title: regex });
+
+    if (!listings || listings.length === 0) {
+        req.flash('error', 'No listings found');
+        return res.redirect('/listings');
+    }
+
+    res.render('listings/index', { allListings: listings });
+};
+
 // SHOW route
 module.exports.showListing = async (req, res) => {
     let {id} = req.params;

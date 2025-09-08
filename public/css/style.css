@@ -4,41 +4,90 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: transparent !important;
+    position: relative;
+    z-index: 0;
 }
 
 .container {
     flex: 1;
+    background: transparent !important;
+    z-index: 1;
 }
 
-/* ==================== NAVBAR STYLES (navbar.ejs) ==================== */
+/* ==================== NAVBAR STYLES ==================== */
+.nav-link {
+    color: #222222 !important;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
 
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fe424d;
+    transition: width 0.3s ease-in-out;
+}
 
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fe424d !important;
+}
+
+/* ICONS */
 .fa-compass {
     color: #fe424d;
     font-size: 2rem;
 }
 
-.nav-link {
-    color: #222222 !important;
+/* ==================== NAVBAR SEARCH BAR ==================== */
+.navbar .d-flex[role="search"] {
+    margin: 0 auto;          /* centers horizontally */
+    display: flex;
+    align-items: center;
 }
+
+.search-input,
+.search-btn {
+    height: 2.5rem;
+    border-radius: 2rem !important;
+    border: 1px solid rgba(179, 0, 27, 0.85);;
+    background-color: transparent !important;
+    color: white !important;
+    font-weight: 500;
+}
+
+.search-input {
+    padding-left: 1rem;
+    width: 18rem;
+}
+
+.search-btn {
+    margin-left: 0.5rem;
+    padding: 0 1rem;
+    border-radius: 1rem !important;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #990017 !important;
+}
+
 
 /* NAVBAR HOVER EFFECTS */
-
-
-
 .navbar-nav .nav-link:hover {
     color: #b3001b !important;
 }
 
-.navbar-nav .nav-link::after {
-    background-color: #b3001b;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #b3001b !important;
-}
-
-/* NAVBAR - SMALL SCREEN */
+/* ==================== NAVBAR - SMALL SCREEN ==================== */
 @media (max-width: 768px) { 
     .navbar-collapse {
         background-color: rgba(255, 255, 255, 0.2) !important;
@@ -55,7 +104,6 @@ body {
         transition: all 0.3s ease-in-out;
     }
 
-
     .navbar-nav .nav-link {
         color: #333333 !important;
         font-weight: 600;
@@ -69,8 +117,6 @@ body {
         background-color: rgba(179, 0, 27, 0.85); /* red with opacity */
         color: white !important;
     }
-    
-    
 
     .navbar-toggler {
         border: none;
@@ -81,42 +127,11 @@ body {
     }
 }
 
-/* NAVBAR - LARGE SCREEN HOVER */
-@media (min-width: 768px) {
-
-    .navbar-nav .nav-link {
-        position: relative;
-        transition: all 0.3s ease-in-out;
-    }
-   
-
-    .navbar-nav .nav-link::after {
-        content: "";
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #fe424d;
-        transition: width 0.3s ease-in-out;
-    }
-
-    .navbar-nav .nav-link:hover::after {
-        width: 100%;
-    }
-
-    .navbar-nav .nav-link:hover {
-        color: #fe424d !important;
-    }
-}
-
-
-
-/* ==================== FOOTER STYLES (footer.ejs) ==================== */
+/* ==================== FOOTER STYLES ==================== */
 .f-info {
     text-align: center;
     height: 8rem;
-    background-color: #ebebeb;
+    background-color: transparent;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -146,19 +161,17 @@ body {
     font-size: 1.2rem;
 }
 
-/* ==================== CARD STYLES (index.ejs) ==================== */
+/* ==================== CARD STYLES ==================== */
 .card {
     border: 1px solid rgba(255, 255, 255, 0.2);
     margin-bottom: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 1rem !important;
-    background-color: rgba(255, 255, 255, 0.15)  !important;
-    color:  #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
     backdrop-filter: blur(10px);
     text-align: center;
-    padding-top: 1rem !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding: 1rem !important;
 }
 
 .card:hover {
@@ -184,9 +197,7 @@ body {
     text-decoration: none;
 }
 
-
-/* ==================== FORM BUTTONS (new.ejs, edit.ejs) ==================== */
-
+/* ==================== BUTTONS (new.ejs, edit.ejs) ==================== */
 .add-btn,
 .edit-btn {
     background-color: #b3001b !important;
@@ -196,9 +207,10 @@ body {
 
 .add-btn:hover,
 .edit-btn:hover {
-    background-color: #990017 !important; /* slightly darker hover */
+    background-color: #990017 !important;
 }
-/* ==================== SHOW PAGE IMAGE + BUTTONS (show.ejs) ==================== */
+
+/* ==================== SHOW PAGE ==================== */
 .show-img {
     padding-top: 0.5rem;
     width: 100%;
@@ -215,7 +227,7 @@ body {
     padding-right: 0;
 }
 
-/* ==================== HOME PAGE STYLES (home.ejs) ==================== */
+/* ==================== HOME PAGE ==================== */
 .home-bg {
     position: fixed;
     top: 0;
@@ -272,36 +284,7 @@ body {
     color: grey !important;
 }
 
-/* ALL page */
-
-body {
-    background: transparent !important;
-    position: relative;
-    z-index: 0;
-}
-
-.container,
-.navbar,
-footer,
-.f-info {
-    background: transparent !important;
-    z-index: 1;
-}
-
-/* Transparent nav and footer only on home page */
-.home-bg-active nav.navbar,
-.home-bg-active footer,
-.home-bg-active .f-info {
-    background: transparent !important;
-}
-
-.home-bg-active .f-info-links a,
-.home-bg-active .f-info-socials i,
-.home-bg-active .f-info-brand {
-    color: grey !important;
-}
-
-/* ==================== REVIEW BLOCK STYLES ==================== */
+/* ==================== REVIEW BLOCK ==================== */
 .review-wrapper {
     background-color: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
@@ -311,28 +294,51 @@ footer,
     color: #fff;
 }
 
-/* Separate form and reviews visually */
-.review-form {
-    background-color: rgba(255, 255, 255, 0.12);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    margin-bottom: 2rem;
-}
-
+.review-form,
 .review-list {
-    background-color: rgba(255, 255, 255, 0.06);
-    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
     border-radius: 1rem;
-}
-
-.review-list .card {
-    background-color: rgba(255, 255, 255, 0.12);
     color: white;
-    border-radius: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Range to Stars */
+.review-form:hover,
+.review-list:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.review-form textarea {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(6px);
+    resize: vertical;
+}
+
+.review-form textarea::placeholder {
+    color: #dddddd;
+}
+
+.review-form textarea:focus {
+    outline: none;
+    border-color: #b3001b;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.star-rating-input i {
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-right: 0.3rem;
+}
+
+/* Range slider styles */
 input[type="range"].form-range {
     width: 100%;
     height: 1.2rem;
@@ -357,66 +363,12 @@ input[type="range"].form-range::-webkit-slider-runnable-track {
     border-radius: 0.5rem;
 }
 
-/* Stars below range */
-.range-stars-preview {
-    font-size: 1.3rem;
-    color: gold !;
-    margin-top: -0.3rem;
-}
-
-/* Static star output */
+.range-stars-preview,
 .star-output {
     color: gold;
-    font-size: 1.2rem;
 }
 
-.review-form,
-.review-list {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    color: white;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.review-form:hover,
-.review-list:hover {
-    transform: translateY(-3px) scale(1.01);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.star-rating-input i {
-    font-size: 1.6rem;
-    cursor: pointer;
-    margin-right: 0.3rem;
-}
-
-
-.review-form textarea {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 0.5rem;
-    backdrop-filter: blur(6px);
-    resize: vertical;
-}
-
-.review-form textarea::placeholder {
-    color: #dddddd;
-}
-
-.review-form textarea:focus {
-    outline: none;
-    border-color: #b3001b;
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* MAP */
-
+/* ==================== MAP STYLES ==================== */
 #map {
     height: 300px;
     width: 100%;
@@ -435,12 +387,12 @@ input[type="range"].form-range::-webkit-slider-runnable-track {
 }
 
 .custom-popup .mapboxgl-popup-content {
-    background: #1c1c1c;  /* dark bg */
-    color: #fff;          /* white text */
+    background: #1c1c1c;
+    color: #fff;
     border-radius: 10px;
     padding: 10px;
-  }
-  
-  .custom-popup .mapboxgl-popup-tip {
-    border-top-color: #1c1c1c !important; /* arrow same color */
-  }
+}
+
+.custom-popup .mapboxgl-popup-tip {
+    border-top-color: #1c1c1c !important;
+}

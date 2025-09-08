@@ -17,6 +17,10 @@ router.route("/")
 router.route("/new")
     .get(isLoggedIn, listingController.newListing);
 
+// SEARCH route
+router.route("/search")
+    .get(wrapAsync(listingController.searchListings))
+
 // SHOW route && UPDATE route && DELETE route
 router.route("/:id")
     .get(wrapAsync(listingController.showListing))
