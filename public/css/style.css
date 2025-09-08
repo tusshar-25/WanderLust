@@ -16,6 +16,15 @@ body {
 }
 
 /* ==================== NAVBAR STYLES ==================== */
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.15) !important; /* semi-transparent */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
 .nav-link {
     color: #222222 !important;
     position: relative;
@@ -90,9 +99,9 @@ body {
 /* ==================== NAVBAR - SMALL SCREEN ==================== */
 @media (max-width: 768px) { 
     .navbar-collapse {
-        background-color: rgba(255, 255, 255, 0.2) !important;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        background-color: transparent !important;
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
         margin: 0;
         padding: 1.5rem;
         width: 100vw;
