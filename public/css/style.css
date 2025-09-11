@@ -99,9 +99,9 @@ body {
 /* ==================== NAVBAR - SMALL SCREEN ==================== */
 @media (max-width: 768px) { 
     .navbar-collapse {
-        background-color: transparent !important;
-        backdrop-filter: blur(15px) !important;
-        -webkit-backdrop-filter: blur(15px) !important;
+        background-color: rgba(255, 255, 255, 0.40) !important; /* semi-transparent */
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
         margin: 0;
         padding: 1.5rem;
         width: 100vw;
@@ -111,6 +111,7 @@ body {
         z-index: 1049;
         box-shadow: none;
         transition: all 0.3s ease-in-out;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .navbar-nav .nav-link {
