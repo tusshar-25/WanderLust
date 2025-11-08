@@ -2,7 +2,7 @@
 
 **WanderLust** is a full-stack travel listing web application where users can create, explore, and manage beautiful vacation listings.
 
-Live Demo: Wanderlust Project on Render
+Live Demo: https://wanderlust-project-ihk8.onrender.com
 ---
 
 ## 🛠 Tech Stack
